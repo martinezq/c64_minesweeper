@@ -1,1 +1,10 @@
-# c64_minesweeper
+
+### Setup
+
+Install dev environment from https://dustlayer.com
+
+### Launch
+
+```
+dust compile
+```
