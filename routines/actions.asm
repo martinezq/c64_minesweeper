@@ -1,7 +1,5 @@
 cursor_press
-            lda #$01
-            ldx cursor_x
-            sta SCREEN,x
+            +setAtCursor $01
             rts
 
 cursor_up   

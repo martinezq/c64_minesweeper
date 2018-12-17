@@ -20,6 +20,9 @@
 * = $c000     ; start_address were all the assembled 
 			  ; code will be consecutively written to
 
+!source "macros/math.asm"
+!source "macros/cursor.asm"
+
 !source "routines/globals.asm"
 !source "routines/main.asm"
 !source "routines/loop.asm"
