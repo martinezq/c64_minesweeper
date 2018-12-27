@@ -15,7 +15,7 @@
 
 !macro FIELD {
         +RND
-        and #%10000101
+        and #%10100101
         bne .zero
         lda #CHAR_BOMB
         jmp .end
