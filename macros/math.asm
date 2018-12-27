@@ -19,7 +19,7 @@
 }
 
 !macro MULT_16_A .PTR {
-    tax
+        tax
     .check_zero
         cmp #$00
         bne .check_one
