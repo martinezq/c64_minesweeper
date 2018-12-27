@@ -1,3 +1,3 @@
-jsr init_board
-jsr init_screen
++INIT_BOARD
++INIT_SCREEN
 jsr loop

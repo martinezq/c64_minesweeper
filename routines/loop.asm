@@ -27,3 +27,11 @@ loop3:  cmp $d012 ; the next raster line so next time we
         beq loop3 ; should catch the same line next frame
 
         jmp loop1 ; jump to main loop
+
+check_keyboard
+        +CHECK_KEYBOARD
+        rts
+        
+update_screen
+        +SET_SPRITE0_POS CURSOR_X, CURSOR_Y
+        rts

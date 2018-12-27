@@ -1,6 +1,7 @@
 !cpu 6502
 !to "build/index.prg",cbm    ; output file
 
+!source "globals.asm"
 !source "data/data.asm"
 
 ;============================================================
@@ -20,13 +21,15 @@
 * = $c000     ; start_address were all the assembled 
 			  ; code will be consecutively written to
 
+!source "macros/utils.asm"
 !source "macros/math.asm"
-!source "macros/cursor.asm"
+!source "macros/sprite.asm"
 
-!source "routines/globals.asm"
+!source "macros/cursor.asm"
+!source "macros/board.asm"
+!source "macros/init_screen.asm"
+!source "macros/keyboard.asm"
+!source "macros/actions.asm"
+
 !source "routines/main.asm"
 !source "routines/loop.asm"
-!source "routines/screen.asm"
-!source "routines/keyboard.asm"
-!source "routines/actions.asm"
-!source "routines/board.asm"

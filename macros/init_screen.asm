@@ -1,4 +1,4 @@
-init_screen:
+!macro INIT_SCREEN {
     lda $dd00
     and #%11111100
     ora #%00000010
@@ -9,10 +9,10 @@ init_screen:
     ora #%00010010      ; screen mem $4400
     sta $d018
 
-    lda #background_color 
+    lda #BACKGROUND_COLOR 
     sta $d020           ; border color
 
-    lda #background_color
+    lda #BACKGROUND_COLOR
     sta $d021           ; background color
 
     lda #$00
@@ -21,11 +21,12 @@ init_screen:
     lda #$ff
     sta $d015           ; show all sprites
 
-    lda #cursor_color
+    lda #CURSOR_COLOR
     sta $d027           ; sprite 0 white
 
-    lda #tile_color
+    lda #TILE_COLOR
     ldx #$00
+    
  .update_color:   
     sta $d800,x
     sta $d900,x
@@ -35,39 +36,7 @@ init_screen:
     bne .update_color
 
     lda #0
-    sta cursor_x
+    sta CURSOR_X
     lda #0
-    sta cursor_y
-
-    rts
-
-update_screen:
-update_x:
-    lda cursor_x
-    asl
-    asl
-    asl
-    bcs opt2
-    adc #24
-    bcs opt3
-opt1: 
-    sta $d000
-    lda #%00000000
-    sta $d010 
-    jmp update_y
-opt2:
-    adc #23
-opt3:
-    sta $d000
-    lda #%00000001
-    sta $d010           ; sprites x position additional bit
-
-update_y:
-    lda cursor_y
-    asl
-    asl
-    asl
-    adc #50
-    sta $d001           ; sprite 0 y (50 - 242)
-
-    rts
+    sta CURSOR_Y
+}

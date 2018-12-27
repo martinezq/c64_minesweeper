@@ -1,25 +1,16 @@
 !macro setAtCursor .val {
-    lda #<SCREEN        ; low byte
-    sta buf16
-    lda #>SCREEN        ; high byte
-    sta buf16+1
+        +set16 buf16a, SCREEN   ; store address of the SCREEN memory in buf16a
+        +set16 buf16b, 0040 
 
-    lda cursor_x
-    +add16a buf16
+        lda CURSOR_X
+        +add16a buf16a
 
-    ldy cursor_y
-    cpy #$00
-    beq .out
+        lda CURSOR_Y
+        +mult16a buf16b
 
-.loop1    
-    lda #40
-    +add16a buf16
-    dey
-    cpy #$00
-    bne .loop1
+        +add16v buf16a, buf16b
 
-.out
-    ldy #$00
-    lda .val
-    sta (buf16),y
+        ldy #$00
+        lda .val
+        sta (buf16a),y
 }
