@@ -17,3 +17,15 @@
         lda SPTR+1
         sta PTR+1
 }
+
+!macro INIT_RND {
+        lda #$ff        ; maximum frequency value
+        sta $d40e       ; voice 3 frequency low byte
+        sta $d40f       ; voice 3 frequency high byte
+        lda #$80        ; noise waveform, gate bit off
+        sta $d412       ; voice 3 control register
+}
+
+!macro RND {
+        lda $d41b       ; get random value from 0-255
+}

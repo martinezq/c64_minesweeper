@@ -1,14 +1,8 @@
+CHAR_00 = $00
+CHAR_BOMB = $0a
+CHAR_COVER_OFFSET = %00010000
 
-* = CHARACTER
-
-!byte %10000000
-!byte %01111111
-!byte %01111111
-!byte %01111111
-!byte %01111111
-!byte %01111111
-!byte %01111111
-!byte %01111111
+* = CHARACTER + CHAR_00 * 8
 
 !byte %11111111
 !byte %10000000
@@ -91,14 +85,99 @@
 !byte %10011100
 !byte %10000000
 
-!byte %11111111
+* = CHARACTER + (CHAR_00 + CHAR_COVER_OFFSET) * 8
+
 !byte %10000000
-!byte %10011100
-!byte %10100010
-!byte %10011100
-!byte %10000010
-!byte %10011100
+!byte %01111111
+!byte %01111111
+!byte %01111111
+!byte %01111111
+!byte %01111111
+!byte %01111111
+!byte %01111111
+
 !byte %10000000
+!byte %01111111
+!byte %01111111
+!byte %01111111
+!byte %01111111
+!byte %01111111
+!byte %01111111
+!byte %01111111
+
+!byte %10000000
+!byte %01111111
+!byte %01111111
+!byte %01111111
+!byte %01111111
+!byte %01111111
+!byte %01111111
+!byte %01111111
+
+!byte %10000000
+!byte %01111111
+!byte %01111111
+!byte %01111111
+!byte %01111111
+!byte %01111111
+!byte %01111111
+!byte %01111111
+
+!byte %10000000
+!byte %01111111
+!byte %01111111
+!byte %01111111
+!byte %01111111
+!byte %01111111
+!byte %01111111
+!byte %01111111
+
+!byte %10000000
+!byte %01111111
+!byte %01111111
+!byte %01111111
+!byte %01111111
+!byte %01111111
+!byte %01111111
+!byte %01111111
+
+!byte %10000000
+!byte %01111111
+!byte %01111111
+!byte %01111111
+!byte %01111111
+!byte %01111111
+!byte %01111111
+!byte %01111111
+
+!byte %10000000
+!byte %01111111
+!byte %01111111
+!byte %01111111
+!byte %01111111
+!byte %01111111
+!byte %01111111
+!byte %01111111
+
+!byte %10000000
+!byte %01111111
+!byte %01111111
+!byte %01111111
+!byte %01111111
+!byte %01111111
+!byte %01111111
+!byte %01111111
+
+!byte %10000000
+!byte %01111111
+!byte %01111111
+!byte %01111111
+!byte %01111111
+!byte %01111111
+!byte %01111111
+!byte %01111111
+
+* = CHARACTER + CHAR_BOMB * 8
 
 !byte %11111111
 !byte %10000000
@@ -108,6 +187,17 @@
 !byte %10011100
 !byte %10001000
 !byte %10000000
+
+* = CHARACTER + (CHAR_BOMB + CHAR_COVER_OFFSET) * 8
+
+!byte %10000000
+!byte %01111111
+!byte %01111111
+!byte %01111111
+!byte %01111111
+!byte %01111111
+!byte %01111111
+!byte %01111111
 
 * = SPRITE_FRAMES
 

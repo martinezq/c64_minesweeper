@@ -1,3 +1,4 @@
++INIT_RND
 +INIT_BOARD
 +INIT_SCREEN
 jsr loop
