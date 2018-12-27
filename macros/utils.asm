@@ -1,17 +1,17 @@
-!macro reset16 PTR {
+!macro RESET_16 PTR {
         lda #$00
         sta PTR
         sta PTR+1
 }
 
-!macro set16 PTR, VAL {
+!macro SET_16 PTR, VAL {
         lda #<VAL      ; low byte
         sta PTR
         lda #>VAL      ; high byte
         sta PTR+1
 }
 
-!macro copy16 PTR, SPTR {
+!macro COPY_16 PTR, SPTR {
         lda SPTR
         sta PTR
         lda SPTR+1

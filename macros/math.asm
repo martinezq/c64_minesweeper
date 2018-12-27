@@ -1,4 +1,4 @@
-!macro add16a .PTR {
+!macro ADD_16_A .PTR {
         clc
         adc .PTR
         sta .PTR
@@ -8,7 +8,7 @@
         sta .PTR+1
 }
 
-!macro add16v .PTR, .SPTR {
+!macro ADD_16_V .PTR, .SPTR {
         clc
         lda .SPTR
         adc .PTR
@@ -18,12 +18,12 @@
         sta .PTR+1
 }
 
-!macro mult16a .PTR {
+!macro MULT_16_A .PTR {
     tax
     .check_zero
         cmp #$00
         bne .check_one
-        +reset16 .PTR
+        +RESET_16 .PTR
         jmp .end
     .check_one
         txa
@@ -31,9 +31,9 @@
         beq .end
     .mult
         dex
-        +copy16 buf16mult, .PTR
+        +COPY_16 buf16mult, .PTR
     .loop
-        +add16v .PTR, buf16mult
+        +ADD_16_V .PTR, buf16mult
         dex
         cpx #$00
         bne .loop
