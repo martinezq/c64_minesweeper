@@ -16,16 +16,21 @@ DATA_DIR_REG_B =  $dc03         ; CIA#1 (Data Direction Register B)
 ;---------------------------------
 
 CURSOR_COLOR = $01
-TILE_COLOR = $02
+TILE_COLOR = $04
 BACKGROUND_COLOR = $00
 
 ;---------------------------------
 
-CURSOR_X = $f0
-CURSOR_Y = $f1
+CURSOR_X = $a0
+CURSOR_Y = $a1
+CURSOR_PTR16 = $a2
+CURSOR_VAL = $a4
 
 ;---------------------------------
 
-buf16a = $f2
-buf16b = $f4
-buf16mult = $f6
+buf8a = $b0
+buf8b = buf8a + 1
+
+buf16a = buf8b + 1
+buf16b = buf16a + 2
+buf16mult = buf16b + 2

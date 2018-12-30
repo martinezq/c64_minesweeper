@@ -24,10 +24,10 @@
 !source "macros/utils.asm"
 !source "macros/math.asm"
 !source "macros/sprite.asm"
+!source "macros/cursor.asm"
 !source "macros/board.asm"
 !source "macros/init_screen.asm"
 !source "macros/keyboard.asm"
-!source "macros/actions.asm"
 
 !source "routines/main.asm"
 !source "routines/loop.asm"

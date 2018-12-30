@@ -29,3 +29,19 @@
 !macro RND {
         lda $d41b       ; get random value from 0-255
 }
+
+!macro PUSH_REGS {
+    pha
+    txa
+    pha
+    tya
+    pha
+}
+
+!macro POP_REGS {
+    pla
+    tay
+    pla
+    tax
+    pla
+}
