@@ -17,11 +17,12 @@
     .update
         +MOVE_CURSOR_XY
         +RANDOM_BOMB
-        cmp #CHAR_BOMB
+        cmp #(CHAR_BOMB + CHAR_COVER_OFFSET)
         beq .place_bomb
         rts
+
     .place_bomb
-        +SET_AT_CURSOR CHAR_BOMB
+        +SET_AT_CURSOR (CHAR_BOMB + CHAR_COVER_OFFSET)
         
         +CURSOR_LEFT
         +CHECK_NO_BOMB_AND_INC
@@ -56,7 +57,7 @@
 
 !macro CHECK_NO_BOMB_AND_INC {
         lda CURSOR_VAL
-        cmp #CHAR_BOMB
+        cmp #(CHAR_BOMB + CHAR_COVER_OFFSET)
         beq .skip
         +INC_AT_CURSOR
     .skip
@@ -64,7 +65,7 @@
 
 !macro RESET_BOARD {
         ldx #$00
-        lda #CHAR_00
+        lda #(CHAR_00 + CHAR_COVER_OFFSET)
     .loop
         sta SCREEN,x
         sta SCREEN+$ff,x
@@ -79,7 +80,7 @@
         and #%10100001
         bne .zero
     .bomb    
-        lda #CHAR_BOMB
+        lda #(CHAR_BOMB + CHAR_COVER_OFFSET)
         jmp .end
     .zero    
         lda #CHAR_00

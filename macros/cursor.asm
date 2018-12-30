@@ -107,6 +107,21 @@
         tay
 }
 
+!macro UNCOVER_AT_CURSOR {
+        tya
+        pha
+        ldy #$00
+        lda (CURSOR_PTR16),y
+        cmp #CHAR_COVER_OFFSET
+        bcc .skip
+        sbc #CHAR_COVER_OFFSET
+        sta (CURSOR_PTR16),y
+        sta CURSOR_VAL
+    .skip
+        pla
+        tay
+}
+
 !macro READ_CURSOR_VAL {
         tya
         pha
@@ -118,7 +133,6 @@
 }
 
 !macro CURSOR_PRESS {
-    ;+INC_AT_CURSOR
-    +TOGGLE_AT_CURSOR
+    +UNCOVER_AT_CURSOR
 }
             
